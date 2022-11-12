@@ -1,18 +1,36 @@
 import React from 'react'
 import './Product.css';
+import { useStateValue } from './StateProvider';
 
-function Product() {
+function Product({id, title, image, price, rating}) {
+  const [state, dispatch] = useStateValue();
+
+  const addToBasket = () => {
+    dispatch({
+      type: 'ADD_TO_BASKET',
+      item: {
+        id: id,
+        title: title,
+        image: image,
+        price: price,
+        rating: rating,
+      }
+    })
+  }
+
   return (
     <div className='product'>
         <div className='product_info'>
-            <p>amika PERK UP Dry Shampoo , 150.0 ml (Pack of 1)</p>
+            <p>{title}</p>
             <div className='product_rating'>
-                <p>⭐</p>
+                {Array(rating).fill().map((_, i) => (
+                  <p>⭐</p>
+                ))}
             </div>
-            <p className='product_price'><small>$</small><strong>34.00</strong></p>
+            <p className='product_price'><small>$</small><strong>{price}</strong></p>
         </div>
-        <img src='https://m.media-amazon.com/images/I/61D3QkLO9VL._SX466_.jpg' alt=''></img>
-        <button>Add to Basket</button>
+        <img src={image} alt=''/>
+        <button onClick={addToBasket}>Add to Basket</button>
     </div>
   )
 }
