@@ -4,6 +4,9 @@
     background-color: white;
     height: max-content;
     justify-content: space-between;
+    position: relative;
+    margin-right: 10%;
+    margin-left: 10%;
 }
 
 .checkout_title {
@@ -14,4 +17,13 @@
 
 .checkout_right {
     align-self: flex-end;
+    position: relative;
+    height: 100vh;
+    top: 10px;
+}
+
+.checkout_cart {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
 }
