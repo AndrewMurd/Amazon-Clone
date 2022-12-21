@@ -55,3 +55,11 @@
     margin-top: 10px;
     border-color: #a88734 #9c7e31 #846a29;
 }
+
+.signUp_registerButton:active {
+    border: 2px solid;
+}
+
+.signUp_registerButton:hover {
+    background: #a38437;
+}

@@ -1,6 +1,14 @@
-export const initialState = {
+const initialState = {
     basket: [],
     user: null,
+}
+
+const getBasketSubtotal = (basket) => {
+    let subtotal = 0.0;
+    for (let item of basket) {
+        subtotal += item.price;
+    }
+    return subtotal;
 }
 
 const reducer = (state, action) => {
@@ -9,6 +17,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 basket: [...state.basket, action.item],
+            }
+        case 'EMPTY_BASKET':
+            return {
+                ...state,
+                basket: [],
             }
         case 'REMOVE_FROM_BASKET':
             const index = state.basket.findIndex(
@@ -36,4 +49,4 @@ const reducer = (state, action) => {
     }   
 };
 
-export default reducer;
+export { reducer, getBasketSubtotal, initialState };

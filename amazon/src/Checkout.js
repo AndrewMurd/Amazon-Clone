@@ -12,7 +12,6 @@ function Checkout() {
       <div className='checkout'>
         <div className='checkout_left'>
           <div>
-            <h3>Hello, {user?.email}</h3>
             <h2 className='checkout_title'>
               Shopping Cart
             </h2>

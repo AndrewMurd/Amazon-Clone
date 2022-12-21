@@ -56,6 +56,14 @@
     border-color: #a88734 #9c7e31 #846a29;
 }
 
+.login_signInButton:active {
+    border: 2px solid;
+}
+
+.login_signInButton:hover {
+    background: #a38437;
+}
+
 .login_registerButton {
     border-radius: 2px;
     width: 100%;
@@ -64,3 +72,12 @@
     margin-top: 10px;
     border-color: darkgrey;
 }
+
+.login_registerButton:active {
+    border: 2px solid;
+}
+
+.login_registerButton:hover {
+    background: #a09f9f;
+}
+

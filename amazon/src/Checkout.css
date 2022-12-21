@@ -7,6 +7,7 @@
     position: relative;
     margin-right: 10%;
     margin-left: 10%;
+    padding-bottom: 90px;
 }
 
 .checkout_title {
@@ -16,10 +17,9 @@
 }
 
 .checkout_right {
-    align-self: flex-end;
-    position: relative;
-    height: 100vh;
-    top: 10px;
+    position: fixed;
+    right: 220px;
+    top: 70px;
 }
 
 .checkout_cart {
