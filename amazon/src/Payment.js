@@ -37,11 +37,16 @@ function Payment() {
         getClientSecret();
     }, [basket])
 
-    console.log('THE SECRET IS >>>', clientSecret)
-    console.log('👱', user)
+    // console.log('THE SECRET IS >>>', clientSecret)
+    // console.log('👱', user)
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        if (error) {
+            return;
+        }
+
         setProcessing(true);
 
         const payload = await stripe.confirmCardPayment(clientSecret, {
@@ -49,9 +54,8 @@ function Payment() {
                 card: elements.getElement(CardElement)
             }
         }).then(({ paymentIntent }) => {
-
-            console.log(paymentIntent);
-            console.log(basket);
+            // console.log(paymentIntent);
+            // console.log(basket);
 
             db
               .collection('users')
@@ -65,8 +69,8 @@ function Payment() {
               })
 
             setSucceeded(true);
-            setError(null)
-            setProcessing(false)
+            setError(null);
+            setProcessing(false);
 
             dispatch({
                 type: 'EMPTY_BASKET'
@@ -86,7 +90,7 @@ function Payment() {
         <div className='payment'>
             <div className='payment_container'>
                 <h1>
-                    Checkout (<Link to='./checkout'>{basket?.length} items</Link>)
+                    Checkout (<Link to='/checkout'>{basket?.length} items</Link>)
                 </h1>
                 <div className='payment_section'>
                     <div className='payment_title'>

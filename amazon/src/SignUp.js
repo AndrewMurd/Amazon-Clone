@@ -4,6 +4,7 @@ import { auth } from './firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import './SignUp.css';
 import { useStateValue } from './StateProvider';
+import { db } from './firebase';
 
 function SignUp() {
     const [{ basket, user }, dispatch] = useStateValue();
@@ -15,7 +16,7 @@ function SignUp() {
 
     const register = e => {
         e.preventDefault();
-        
+
         auth
             .createUserWithEmailAndPassword(email, password)
             .then((auth) => {
@@ -23,10 +24,21 @@ function SignUp() {
                 if (auth) {
                     navigate('/');
                 }
+
+                db
+                    .collection('users')
+                    .doc(auth.user.uid)
+                    .set({
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: email,
+                    })
+                dispatch({
+                    type: 'SET_USER',
+                    user: auth.user,
+                })
             })
             .catch(error => alert(error.message))
-    
-        
     }
 
     return (

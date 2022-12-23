@@ -18,7 +18,7 @@ app.get("/", (request, response) => response.status(200).send("hello world"));
 app.post("/payments/create", async (request, response) => {
   const total = request.query.total;
 
-  console.log("Payment Request Recieved BOOM!!! for this amount >>> ", total);
+  console.log("Payment request recieved for this amount >>> ", total);
 
   const paymentIntent = await stripe.paymentIntents.create({
     amount: total, // subunits of the currency
@@ -33,5 +33,3 @@ app.post("/payments/create", async (request, response) => {
 
 // - Listen command
 exports.api = functions.https.onRequest(app);
-
-// http://127.0.0.1:5001/clone-4e1df/us-central1/api

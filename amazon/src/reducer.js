@@ -1,6 +1,9 @@
 const initialState = {
     basket: [],
+    searchInput: '',
     user: null,
+    firstName: null,
+    lastName: null,
 }
 
 const getBasketSubtotal = (basket) => {
@@ -13,7 +16,12 @@ const getBasketSubtotal = (basket) => {
 
 const reducer = (state, action) => {
     switch (action.type) {
-        case 'ADD_TO_BASKET': 
+        case 'SET_SEARCH':
+            return {
+                ...state,
+                searchInput: action.value,
+            }
+        case 'ADD_TO_BASKET':
             return {
                 ...state,
                 basket: [...state.basket, action.item],
@@ -27,7 +35,6 @@ const reducer = (state, action) => {
             const index = state.basket.findIndex(
                 (basketItem) => basketItem.id === action.id
             );
-            console.log(index);
             let newBasket = [...state.basket];
             if (index >= 0) {
                 newBasket.splice(index, 1);
@@ -39,14 +46,20 @@ const reducer = (state, action) => {
                 ...state,
                 basket: newBasket,
             }
-        case 'SET_USER': 
+        case 'SET_USER':
             return {
                 ...state,
                 user: action.user
             }
+        case 'SET_NAME':
+            return {
+                ...state,
+                firstName: action.firstName,
+                lastName: action.lastName,
+            }
         default:
             return state;
-    }   
+    }
 };
 
 export { reducer, getBasketSubtotal, initialState };

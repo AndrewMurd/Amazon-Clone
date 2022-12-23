@@ -1,0 +1,439 @@
+[debug] [2022-12-22T20:34:06.015Z] ----------------------------------------------------------------------
+[debug] [2022-12-22T20:34:06.016Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\andre\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2022-12-22T20:34:06.016Z] CLI Version:   11.19.0
+[debug] [2022-12-22T20:34:06.016Z] Platform:      win32
+[debug] [2022-12-22T20:34:06.016Z] Node Version:  v18.12.1
+[debug] [2022-12-22T20:34:06.017Z] Time:          Thu Dec 22 2022 15:34:06 GMT-0500 (Eastern Standard Time)
+[debug] [2022-12-22T20:34:06.017Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-22T20:34:06.049Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-22T20:34:06.050Z] > authorizing via signed-in user (andrewmurdoch28@gmail.com)
+[debug] [2022-12-22T20:34:06.050Z] [iam] checking project clone-d077e for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2022-12-22T20:34:06.051Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions [none]
+[debug] [2022-12-22T20:34:06.051Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions x-goog-quota-user=projects/clone-d077e
+[debug] [2022-12-22T20:34:06.051Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2022-12-22T20:34:06.448Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions 200
+[debug] [2022-12-22T20:34:06.448Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2022-12-22T20:34:06.449Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/clone-d077e/serviceAccounts/clone-d077e@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2022-12-22T20:34:06.449Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/clone-d077e/serviceAccounts/clone-d077e@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-12-22T20:34:06.723Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/clone-d077e/serviceAccounts/clone-d077e@appspot.gserviceaccount.com:testIamPermissions 404
+[debug] [2022-12-22T20:34:06.723Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/clone-d077e/serviceAccounts/clone-d077e@appspot.gserviceaccount.com:testIamPermissions {"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}}
+[debug] [2022-12-22T20:34:06.723Z] [functions] service account IAM check errored, deploy may fail:HTTP Error: 404, Unknown service account {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"HTTP Error: 404, Unknown service account","status":404}
+[info] 
+[info] === Deploying to 'clone-d077e'...
+[info] 
+[info] i  deploying functions 
+[info] +  functions: Finished running predeploy script. 
+[debug] [2022-12-22T20:34:06.726Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/clone-d077e [none]
+[debug] [2022-12-22T20:34:07.149Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/clone-d077e 200
+[debug] [2022-12-22T20:34:07.149Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/clone-d077e {"projectId":"clone-d077e","projectNumber":"697915260487","displayName":"amazon-clone","name":"projects/clone-d077e","resources":{"hostingSite":"clone-d077e"},"state":"ACTIVE","etag":"1_44d676ba-397a-4950-b644-5a0687cc0b72"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2022-12-22T20:34:07.151Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudfunctions.googleapis.com [none]
+[debug] [2022-12-22T20:34:07.151Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/clone-d077e
+[debug] [2022-12-22T20:34:07.152Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/runtimeconfig.googleapis.com [none]
+[debug] [2022-12-22T20:34:07.152Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/clone-d077e
+[debug] [2022-12-22T20:34:07.153Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudbuild.googleapis.com [none]
+[debug] [2022-12-22T20:34:07.153Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudbuild.googleapis.com x-goog-quota-user=projects/clone-d077e
+[debug] [2022-12-22T20:34:07.154Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/artifactregistry.googleapis.com [none]
+[debug] [2022-12-22T20:34:07.154Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/artifactregistry.googleapis.com x-goog-quota-user=projects/clone-d077e
+[debug] [2022-12-22T20:34:07.630Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudfunctions.googleapis.com 200
+[debug] [2022-12-22T20:34:07.630Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudfunctions.googleapis.com [omitted]
+[warn] !  functions: missing required API cloudfunctions.googleapis.com. Enabling now... 
+[debug] [2022-12-22T20:34:07.630Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudfunctions.googleapis.com:enable [none]
+[debug] [2022-12-22T20:34:07.630Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudfunctions.googleapis.com:enable x-goog-quota-user=projects/clone-d077e
+[debug] [2022-12-22T20:34:07.639Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/runtimeconfig.googleapis.com 200
+[debug] [2022-12-22T20:34:07.639Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2022-12-22T20:34:07.640Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/artifactregistry.googleapis.com 200
+[debug] [2022-12-22T20:34:07.641Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/artifactregistry.googleapis.com [omitted]
+[warn] !  artifactregistry: missing required API artifactregistry.googleapis.com. Enabling now... 
+[debug] [2022-12-22T20:34:07.641Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/artifactregistry.googleapis.com:enable [none]
+[debug] [2022-12-22T20:34:07.641Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/artifactregistry.googleapis.com:enable x-goog-quota-user=projects/clone-d077e
+[debug] [2022-12-22T20:34:07.644Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudbuild.googleapis.com 200
+[debug] [2022-12-22T20:34:07.644Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudbuild.googleapis.com [omitted]
+[warn] !  functions: missing required API cloudbuild.googleapis.com. Enabling now... 
+[debug] [2022-12-22T20:34:07.644Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudbuild.googleapis.com:enable [none]
+[debug] [2022-12-22T20:34:07.644Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudbuild.googleapis.com:enable x-goog-quota-user=projects/clone-d077e
+[debug] [2022-12-22T20:34:08.214Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudfunctions.googleapis.com:enable 200
+[debug] [2022-12-22T20:34:08.214Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudfunctions.googleapis.com:enable [omitted]
+[debug] [2022-12-22T20:34:08.251Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/artifactregistry.googleapis.com:enable 200
+[debug] [2022-12-22T20:34:08.251Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/artifactregistry.googleapis.com:enable [omitted]
+[debug] [2022-12-22T20:34:08.297Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudbuild.googleapis.com:enable 200
+[debug] [2022-12-22T20:34:08.297Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudbuild.googleapis.com:enable [omitted]
+[debug] [2022-12-22T20:34:18.227Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudfunctions.googleapis.com [none]
+[debug] [2022-12-22T20:34:18.228Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/clone-d077e
+[debug] [2022-12-22T20:34:18.257Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/artifactregistry.googleapis.com [none]
+[debug] [2022-12-22T20:34:18.257Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/artifactregistry.googleapis.com x-goog-quota-user=projects/clone-d077e
+[debug] [2022-12-22T20:34:18.304Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudbuild.googleapis.com [none]
+[debug] [2022-12-22T20:34:18.304Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudbuild.googleapis.com x-goog-quota-user=projects/clone-d077e
+[debug] [2022-12-22T20:34:18.618Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudfunctions.googleapis.com 200
+[debug] [2022-12-22T20:34:18.618Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2022-12-22T20:34:18.677Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/artifactregistry.googleapis.com 200
+[debug] [2022-12-22T20:34:18.678Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2022-12-22T20:34:18.750Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudbuild.googleapis.com 200
+[debug] [2022-12-22T20:34:18.750Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2022-12-22T20:34:18.751Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/clone-d077e/adminSdkConfig [none]
+[debug] [2022-12-22T20:34:19.022Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/clone-d077e/adminSdkConfig 200
+[debug] [2022-12-22T20:34:19.022Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/clone-d077e/adminSdkConfig {"projectId":"clone-d077e","storageBucket":"clone-d077e.appspot.com"}
+[debug] [2022-12-22T20:34:19.022Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/clone-d077e/configs [none]
+[debug] [2022-12-22T20:34:19.332Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/clone-d077e/configs 200
+[debug] [2022-12-22T20:34:19.332Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/clone-d077e/configs {}
+[debug] [2022-12-22T20:34:19.334Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-12-22T20:34:20.161Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.24.1",
+    "stripe": "^11.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-12-22T20:34:20.161Z] Building nodejs source
+[debug] [2022-12-22T20:34:20.162Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-12-22T20:34:20.284Z] Serving at port 9005
+
+[debug] [2022-12-22T20:34:20.355Z] Got response from /__/functions.yaml {"endpoints":{"api":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-12-22T20:34:20.359Z] shutdown requested via /__/quitquitquit
+
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged C:\Users\andre\OneDrive\PersonalProjects\Amazon-Clone\amazon\functions (40.26 KB) for uploading 
+[debug] [2022-12-22T20:34:20.388Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/-/functions [none]
+[debug] [2022-12-22T20:34:21.127Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/-/functions 200
+[debug] [2022-12-22T20:34:21.127Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/-/functions {}
+[debug] [2022-12-22T20:34:21.128Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/clone-d077e/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2022-12-22T20:34:21.727Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/clone-d077e/locations/-/functions 200
+[debug] [2022-12-22T20:34:21.727Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/clone-d077e/locations/-/functions {}
+[debug] [2022-12-22T20:34:21.729Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/clone-d077e [none]
+[debug] [2022-12-22T20:34:22.065Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/clone-d077e 200
+[debug] [2022-12-22T20:34:22.065Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/clone-d077e {"projectId":"clone-d077e","projectNumber":"697915260487","displayName":"amazon-clone","name":"projects/clone-d077e","resources":{"hostingSite":"clone-d077e"},"state":"ACTIVE","etag":"1_44d676ba-397a-4950-b644-5a0687cc0b72"}
+[debug] [2022-12-22T20:34:22.066Z] [functions] found 1 new HTTP functions, testing setIamPolicy permission...
+[debug] [2022-12-22T20:34:22.066Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions [none]
+[debug] [2022-12-22T20:34:22.066Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions x-goog-quota-user=projects/clone-d077e
+[debug] [2022-12-22T20:34:22.066Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions {"permissions":["cloudfunctions.functions.setIamPolicy"]}
+[debug] [2022-12-22T20:34:22.342Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions 200
+[debug] [2022-12-22T20:34:22.342Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions {"permissions":["cloudfunctions.functions.setIamPolicy"]}
+[debug] [2022-12-22T20:34:22.342Z] [functions] found setIamPolicy permission, proceeding with deploy
+[debug] [2022-12-22T20:34:22.343Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2022-12-22T20:34:22.343Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions:generateUploadUrl {}
+[debug] [2022-12-22T20:34:31.393Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2022-12-22T20:34:31.393Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/cf026555-53ea-4772-bf1f-99066468fa57.zip?GoogleAccessId=service-697915260487@gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743072&Signature=bLpvyHw%2BppuzAfU93fXzL%2B7XrzQM0qrnLQoZofTAz9Y0WjxDna3MPAPN2IyGq4Dj%2BoqccHCNcuGsYeoMa3fKAWmDZuxoAEeX9Yforp8Zc%2FVCD3PP7ssfz9b1W8R97yzSKAcWoHeKbWCD0%2FNYSotHY82aBPk9EFBiszTnz%2FXbI9YBgBtErR7PA%2Bx92bpHb2utFdB9zLPgsZsXrDeAsSnmKtGTxjqgf5AhHFr6J2%2BY7XyHj9NjOQ8mDr6bj7awq1y9%2FQw1clbv5ZVn6hdjgb2Pyqc4k4OFWCGea8THNlRPtmegf8VaPY%2F1zbHDIKABMNt8YrAWgwQ5r4rzhV6GF31xPg%3D%3D"}
+[debug] [2022-12-22T20:34:31.393Z] >>> [apiv2][query] PUT https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/cf026555-53ea-4772-bf1f-99066468fa57.zip GoogleAccessId=service-697915260487%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743072&Signature=bLpvyHw%2BppuzAfU93fXzL%2B7XrzQM0qrnLQoZofTAz9Y0WjxDna3MPAPN2IyGq4Dj%2BoqccHCNcuGsYeoMa3fKAWmDZuxoAEeX9Yforp8Zc%2FVCD3PP7ssfz9b1W8R97yzSKAcWoHeKbWCD0%2FNYSotHY82aBPk9EFBiszTnz%2FXbI9YBgBtErR7PA%2Bx92bpHb2utFdB9zLPgsZsXrDeAsSnmKtGTxjqgf5AhHFr6J2%2BY7XyHj9NjOQ8mDr6bj7awq1y9%2FQw1clbv5ZVn6hdjgb2Pyqc4k4OFWCGea8THNlRPtmegf8VaPY%2F1zbHDIKABMNt8YrAWgwQ5r4rzhV6GF31xPg%3D%3D
+[debug] [2022-12-22T20:34:31.394Z] >>> [apiv2][body] PUT https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/cf026555-53ea-4772-bf1f-99066468fa57.zip [stream]
+[debug] [2022-12-22T20:34:31.820Z] <<< [apiv2][status] PUT https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/cf026555-53ea-4772-bf1f-99066468fa57.zip 200
+[debug] [2022-12-22T20:34:31.820Z] <<< [apiv2][body] PUT https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/cf026555-53ea-4772-bf1f-99066468fa57.zip [omitted]
+[info] +  functions: functions folder uploaded successfully 
+[info] i  functions: creating Node.js 16 function api(us-central1)... 
+[debug] [2022-12-22T20:34:31.823Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions [none]
+[debug] [2022-12-22T20:34:31.823Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions {"name":"projects/clone-d077e/locations/us-central1/functions/api","sourceUploadUrl":"https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/cf026555-53ea-4772-bf1f-99066468fa57.zip?GoogleAccessId=service-697915260487@gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743072&Signature=bLpvyHw%2BppuzAfU93fXzL%2B7XrzQM0qrnLQoZofTAz9Y0WjxDna3MPAPN2IyGq4Dj%2BoqccHCNcuGsYeoMa3fKAWmDZuxoAEeX9Yforp8Zc%2FVCD3PP7ssfz9b1W8R97yzSKAcWoHeKbWCD0%2FNYSotHY82aBPk9EFBiszTnz%2FXbI9YBgBtErR7PA%2Bx92bpHb2utFdB9zLPgsZsXrDeAsSnmKtGTxjqgf5AhHFr6J2%2BY7XyHj9NjOQ8mDr6bj7awq1y9%2FQw1clbv5ZVn6hdjgb2Pyqc4k4OFWCGea8THNlRPtmegf8VaPY%2F1zbHDIKABMNt8YrAWgwQ5r4rzhV6GF31xPg%3D%3D","entryPoint":"api","runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"9982a1f854c80d5f1fd8ed93fddc46df3785571f"},"httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"clone-d077e\",\"storageBucket\":\"clone-d077e.appspot.com\"}","GCLOUD_PROJECT":"clone-d077e","EVENTARC_CLOUD_EVENT_SOURCE":"projects/clone-d077e/locations/us-central1/functions/api"}}
+[debug] [2022-12-22T20:34:32.277Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions 403
+[debug] [2022-12-22T20:34:32.277Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions {"error":{"code":403,"message":"Unable to retrieve the repository metadata for projects/clone-d077e/locations/us-central1/repositories/gcf-artifacts. Ensure that the Cloud Functions service account has 'artifactregistry.repositories.list' and 'artifactregistry.repositories.get' permissions. You can add the permissions by granting the role 'roles/artifactregistry.reader'.","status":"PERMISSION_DENIED"}}
+[warn] !  functions: failed to create function projects/clone-d077e/locations/us-central1/functions/api 
+[error] Failed to create function projects/clone-d077e/locations/us-central1/functions/api
+[debug] [2022-12-22T20:34:32.279Z] Total Function Deployment time: 456
+[debug] [2022-12-22T20:34:32.279Z] 1 Functions Deployed
+[debug] [2022-12-22T20:34:32.279Z] 1 Functions Errored
+[debug] [2022-12-22T20:34:32.279Z] 0 Function Deployments Aborted
+[debug] [2022-12-22T20:34:32.279Z] Average Function Deployment time: 455
+[info] 
+[info] Functions deploy had errors with the following functions:
+	api(us-central1)
+[debug] [2022-12-22T20:34:32.280Z] Not printing URL for HTTPS function. Typically this means it didn't match a filter or we failed deployment
+[info] i  functions: cleaning up build files... 
+[debug] [2022-12-22T20:34:32.282Z] >>> [apiv2][query] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/clone-d077e/locations/us-central1/repositories/gcf-artifacts/packages/api [none]
+[debug] [2022-12-22T20:34:32.282Z] >>> [apiv2][query] GET https://us.gcr.io/v2/clone-d077e/gcf/us-central1/tags/list [none]
+[debug] [2022-12-22T20:34:32.917Z] <<< [apiv2][status] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/clone-d077e/locations/us-central1/repositories/gcf-artifacts/packages/api 404
+[debug] [2022-12-22T20:34:32.917Z] <<< [apiv2][body] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/clone-d077e/locations/us-central1/repositories/gcf-artifacts/packages/api {"error":{"code":404,"message":"Package \"projects/clone-d077e/locations/us-central1/repositories/gcf-artifacts/packages/api\" was not found.","status":"NOT_FOUND"}}
+[debug] [2022-12-22T20:34:33.233Z] <<< [apiv2][status] GET https://us.gcr.io/v2/clone-d077e/gcf/us-central1/tags/list 200
+[debug] [2022-12-22T20:34:33.233Z] <<< [apiv2][body] GET https://us.gcr.io/v2/clone-d077e/gcf/us-central1/tags/list {"child":[],"manifest":{},"name":"clone-d077e/gcf/us-central1","tags":[]}
+[debug] [2022-12-22T20:34:33.234Z] Could not find image for function projects/clone-d077e/locations/us-central1/functions/api
+[debug] [2022-12-22T20:34:33.234Z] Functions deploy failed.
+[debug] [2022-12-22T20:34:33.234Z] {
+  "endpoint": {
+    "id": "api",
+    "project": "clone-d077e",
+    "region": "us-central1",
+    "entryPoint": "api",
+    "platform": "gcfv1",
+    "runtime": "nodejs16",
+    "httpsTrigger": {},
+    "environmentVariables": {
+      "FIREBASE_CONFIG": "{\"projectId\":\"clone-d077e\",\"storageBucket\":\"clone-d077e.appspot.com\"}",
+      "GCLOUD_PROJECT": "clone-d077e",
+      "EVENTARC_CLOUD_EVENT_SOURCE": "projects/clone-d077e/locations/us-central1/functions/api"
+    },
+    "codebase": "default",
+    "targetedByOnly": false,
+    "hash": "9982a1f854c80d5f1fd8ed93fddc46df3785571f",
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    }
+  },
+  "op": "create",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "context": {
+      "function": "projects/clone-d077e/locations/us-central1/functions/api"
+    },
+    "exit": 1,
+    "message": "Failed to create function projects/clone-d077e/locations/us-central1/functions/api",
+    "original": {
+      "name": "FirebaseError",
+      "children": [],
+      "context": {
+        "body": {
+          "error": {
+            "code": 403,
+            "message": "Unable to retrieve the repository metadata for projects/clone-d077e/locations/us-central1/repositories/gcf-artifacts. Ensure that the Cloud Functions service account has 'artifactregistry.repositories.list' and 'artifactregistry.repositories.get' permissions. You can add the permissions by granting the role 'roles/artifactregistry.reader'.",
+            "status": "PERMISSION_DENIED"
+          }
+        },
+        "response": {
+          "statusCode": 403
+        }
+      },
+      "exit": 1,
+      "message": "HTTP Error: 403, Unable to retrieve the repository metadata for projects/clone-d077e/locations/us-central1/repositories/gcf-artifacts. Ensure that the Cloud Functions service account has 'artifactregistry.repositories.list' and 'artifactregistry.repositories.get' permissions. You can add the permissions by granting the role 'roles/artifactregistry.reader'.",
+      "status": 403
+    },
+    "status": 500
+  }
+}
+[debug] [2022-12-22T20:34:33.235Z] Error: Failed to create function api in region us-central1
+    at C:\Users\andre\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:48:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Fabricator.createV1Function (C:\Users\andre\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:177:32)
+    at async Fabricator.createEndpoint (C:\Users\andre\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:129:13)
+    at async handle (C:\Users\andre\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:85:17)
+[error] 
+[error] Error: There was an error deploying functions
+[debug] [2022-12-22T20:35:54.024Z] ----------------------------------------------------------------------
+[debug] [2022-12-22T20:35:54.025Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\andre\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js --debug deploy --only functions
+[debug] [2022-12-22T20:35:54.025Z] CLI Version:   11.19.0
+[debug] [2022-12-22T20:35:54.026Z] Platform:      win32
+[debug] [2022-12-22T20:35:54.026Z] Node Version:  v18.12.1
+[debug] [2022-12-22T20:35:54.026Z] Time:          Thu Dec 22 2022 15:35:54 GMT-0500 (Eastern Standard Time)
+[debug] [2022-12-22T20:35:54.026Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-22T20:35:54.061Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-22T20:35:54.062Z] > authorizing via signed-in user (andrewmurdoch28@gmail.com)
+[debug] [2022-12-22T20:35:54.062Z] [iam] checking project clone-d077e for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2022-12-22T20:35:54.064Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions [none]
+[debug] [2022-12-22T20:35:54.064Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions x-goog-quota-user=projects/clone-d077e
+[debug] [2022-12-22T20:35:54.064Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2022-12-22T20:35:54.444Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions 200
+[debug] [2022-12-22T20:35:54.444Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2022-12-22T20:35:54.445Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/clone-d077e/serviceAccounts/clone-d077e@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2022-12-22T20:35:54.446Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/clone-d077e/serviceAccounts/clone-d077e@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-12-22T20:35:54.757Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/clone-d077e/serviceAccounts/clone-d077e@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2022-12-22T20:35:54.757Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/clone-d077e/serviceAccounts/clone-d077e@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'clone-d077e'...
+[info] 
+[info] i  deploying functions 
+[info] +  functions: Finished running predeploy script. 
+[debug] [2022-12-22T20:35:54.760Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/clone-d077e [none]
+[debug] [2022-12-22T20:35:55.088Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/clone-d077e 200
+[debug] [2022-12-22T20:35:55.088Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/clone-d077e {"projectId":"clone-d077e","projectNumber":"697915260487","displayName":"amazon-clone","name":"projects/clone-d077e","resources":{"hostingSite":"clone-d077e"},"state":"ACTIVE","etag":"1_44d676ba-397a-4950-b644-5a0687cc0b72"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2022-12-22T20:35:55.091Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudfunctions.googleapis.com [none]
+[debug] [2022-12-22T20:35:55.091Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/clone-d077e
+[debug] [2022-12-22T20:35:55.092Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/runtimeconfig.googleapis.com [none]
+[debug] [2022-12-22T20:35:55.092Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/clone-d077e
+[debug] [2022-12-22T20:35:55.093Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudbuild.googleapis.com [none]
+[debug] [2022-12-22T20:35:55.093Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudbuild.googleapis.com x-goog-quota-user=projects/clone-d077e
+[debug] [2022-12-22T20:35:55.094Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/artifactregistry.googleapis.com [none]
+[debug] [2022-12-22T20:35:55.094Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/artifactregistry.googleapis.com x-goog-quota-user=projects/clone-d077e
+[debug] [2022-12-22T20:35:55.546Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudbuild.googleapis.com 200
+[debug] [2022-12-22T20:35:55.546Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2022-12-22T20:35:55.570Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/artifactregistry.googleapis.com 200
+[debug] [2022-12-22T20:35:55.570Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2022-12-22T20:35:55.571Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudfunctions.googleapis.com 200
+[debug] [2022-12-22T20:35:55.571Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2022-12-22T20:35:55.579Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/runtimeconfig.googleapis.com 200
+[debug] [2022-12-22T20:35:55.579Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/clone-d077e/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2022-12-22T20:35:55.579Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/clone-d077e/adminSdkConfig [none]
+[debug] [2022-12-22T20:35:55.915Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/clone-d077e/adminSdkConfig 200
+[debug] [2022-12-22T20:35:55.915Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/clone-d077e/adminSdkConfig {"projectId":"clone-d077e","storageBucket":"clone-d077e.appspot.com"}
+[debug] [2022-12-22T20:35:55.916Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/clone-d077e/configs [none]
+[debug] [2022-12-22T20:35:57.286Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/clone-d077e/configs 200
+[debug] [2022-12-22T20:35:57.287Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/clone-d077e/configs {}
+[debug] [2022-12-22T20:35:57.289Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-12-22T20:35:58.225Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.24.1",
+    "stripe": "^11.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-12-22T20:35:58.226Z] Building nodejs source
+[debug] [2022-12-22T20:35:58.227Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-12-22T20:35:58.349Z] Serving at port 9005
+
+[debug] [2022-12-22T20:35:58.428Z] Got response from /__/functions.yaml {"endpoints":{"api":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-12-22T20:35:58.433Z] shutdown requested via /__/quitquitquit
+
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged C:\Users\andre\OneDrive\PersonalProjects\Amazon-Clone\amazon\functions (40.26 KB) for uploading 
+[debug] [2022-12-22T20:35:58.471Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/-/functions [none]
+[debug] [2022-12-22T20:35:59.004Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/-/functions 200
+[debug] [2022-12-22T20:35:59.004Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/-/functions {}
+[debug] [2022-12-22T20:35:59.005Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/clone-d077e/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2022-12-22T20:35:59.643Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/clone-d077e/locations/-/functions 200
+[debug] [2022-12-22T20:35:59.644Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/clone-d077e/locations/-/functions {}
+[debug] [2022-12-22T20:35:59.647Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/clone-d077e [none]
+[debug] [2022-12-22T20:36:00.002Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/clone-d077e 200
+[debug] [2022-12-22T20:36:00.003Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/clone-d077e {"projectId":"clone-d077e","projectNumber":"697915260487","displayName":"amazon-clone","name":"projects/clone-d077e","resources":{"hostingSite":"clone-d077e"},"state":"ACTIVE","etag":"1_44d676ba-397a-4950-b644-5a0687cc0b72"}
+[debug] [2022-12-22T20:36:00.004Z] [functions] found 1 new HTTP functions, testing setIamPolicy permission...
+[debug] [2022-12-22T20:36:00.004Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions [none]
+[debug] [2022-12-22T20:36:00.005Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions x-goog-quota-user=projects/clone-d077e
+[debug] [2022-12-22T20:36:00.005Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions {"permissions":["cloudfunctions.functions.setIamPolicy"]}
+[debug] [2022-12-22T20:36:00.333Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions 200
+[debug] [2022-12-22T20:36:00.334Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-d077e:testIamPermissions {"permissions":["cloudfunctions.functions.setIamPolicy"]}
+[debug] [2022-12-22T20:36:00.334Z] [functions] found setIamPolicy permission, proceeding with deploy
+[debug] [2022-12-22T20:36:00.335Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2022-12-22T20:36:00.335Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions:generateUploadUrl {}
+[debug] [2022-12-22T20:36:01.026Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2022-12-22T20:36:01.026Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip?GoogleAccessId=service-697915260487@gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743161&Signature=CUVx2hOSyyOo7pq1q%2FJSNBOp4oCkMbzAQdRae%2Flk8GgI4PYkXRfRoRnfN68fIbWlfmIHy5h3H%2F1QSKVXcEAEnAte%2FWV8KYj9%2BA6X%2B6NRo7cHr2VCZWsnLZb4X50ReAz96aWj9cq0YWroowNvfDWnaBO%2BOsPt2ulcDAksyyQ2fC86rxKtQD5zCC6zquRBe31ANhQ%2FbpG6Up4CJYHFa0eRNpWGxkoa4Pq110t0oSjtlnkBrFBpMhTjpEPncmiX2ANXGkwdCuQar3N81hYxCsHxz3jzUT8yxtAGCIOTzryexgFVNn5gznuoNy6%2F%2BGvnO7ay0iW715AG8KwpD%2BS4RAmPAQ%3D%3D"}
+[debug] [2022-12-22T20:36:01.027Z] >>> [apiv2][query] PUT https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip GoogleAccessId=service-697915260487%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743161&Signature=CUVx2hOSyyOo7pq1q%2FJSNBOp4oCkMbzAQdRae%2Flk8GgI4PYkXRfRoRnfN68fIbWlfmIHy5h3H%2F1QSKVXcEAEnAte%2FWV8KYj9%2BA6X%2B6NRo7cHr2VCZWsnLZb4X50ReAz96aWj9cq0YWroowNvfDWnaBO%2BOsPt2ulcDAksyyQ2fC86rxKtQD5zCC6zquRBe31ANhQ%2FbpG6Up4CJYHFa0eRNpWGxkoa4Pq110t0oSjtlnkBrFBpMhTjpEPncmiX2ANXGkwdCuQar3N81hYxCsHxz3jzUT8yxtAGCIOTzryexgFVNn5gznuoNy6%2F%2BGvnO7ay0iW715AG8KwpD%2BS4RAmPAQ%3D%3D
+[debug] [2022-12-22T20:36:01.028Z] >>> [apiv2][body] PUT https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip [stream]
+[debug] [2022-12-22T20:36:01.335Z] <<< [apiv2][status] PUT https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip 200
+[debug] [2022-12-22T20:36:01.336Z] <<< [apiv2][body] PUT https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip [omitted]
+[info] +  functions: functions folder uploaded successfully 
+[info] i  functions: creating Node.js 16 function api(us-central1)... 
+[debug] [2022-12-22T20:36:01.339Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions [none]
+[debug] [2022-12-22T20:36:01.340Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions {"name":"projects/clone-d077e/locations/us-central1/functions/api","sourceUploadUrl":"https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip?GoogleAccessId=service-697915260487@gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743161&Signature=CUVx2hOSyyOo7pq1q%2FJSNBOp4oCkMbzAQdRae%2Flk8GgI4PYkXRfRoRnfN68fIbWlfmIHy5h3H%2F1QSKVXcEAEnAte%2FWV8KYj9%2BA6X%2B6NRo7cHr2VCZWsnLZb4X50ReAz96aWj9cq0YWroowNvfDWnaBO%2BOsPt2ulcDAksyyQ2fC86rxKtQD5zCC6zquRBe31ANhQ%2FbpG6Up4CJYHFa0eRNpWGxkoa4Pq110t0oSjtlnkBrFBpMhTjpEPncmiX2ANXGkwdCuQar3N81hYxCsHxz3jzUT8yxtAGCIOTzryexgFVNn5gznuoNy6%2F%2BGvnO7ay0iW715AG8KwpD%2BS4RAmPAQ%3D%3D","entryPoint":"api","runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"9982a1f854c80d5f1fd8ed93fddc46df3785571f"},"httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"clone-d077e\",\"storageBucket\":\"clone-d077e.appspot.com\"}","GCLOUD_PROJECT":"clone-d077e","EVENTARC_CLOUD_EVENT_SOURCE":"projects/clone-d077e/locations/us-central1/functions/api"}}
+[debug] [2022-12-22T20:36:01.995Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions 200
+[debug] [2022-12-22T20:36:01.995Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions {"name":"operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/clone-d077e/locations/us-central1/functions/api","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/clone-d077e/locations/us-central1/functions/api","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"api","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"9982a1f854c80d5f1fd8ed93fddc46df3785571f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip?GoogleAccessId=service-697915260487@gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743161&Signature=CUVx2hOSyyOo7pq1q%2FJSNBOp4oCkMbzAQdRae%2Flk8GgI4PYkXRfRoRnfN68fIbWlfmIHy5h3H%2F1QSKVXcEAEnAte%2FWV8KYj9%2BA6X%2B6NRo7cHr2VCZWsnLZb4X50ReAz96aWj9cq0YWroowNvfDWnaBO%2BOsPt2ulcDAksyyQ2fC86rxKtQD5zCC6zquRBe31ANhQ%2FbpG6Up4CJYHFa0eRNpWGxkoa4Pq110t0oSjtlnkBrFBpMhTjpEPncmiX2ANXGkwdCuQar3N81hYxCsHxz3jzUT8yxtAGCIOTzryexgFVNn5gznuoNy6%2F%2BGvnO7ay0iW715AG8KwpD%2BS4RAmPAQ%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"clone-d077e\",\"storageBucket\":\"clone-d077e.appspot.com\"}","GCLOUD_PROJECT":"clone-d077e","EVENTARC_CLOUD_EVENT_SOURCE":"projects/clone-d077e/locations/us-central1/functions/api"},"runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2022-12-22T20:36:02Z"}}
+[debug] [2022-12-22T20:36:01.997Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 [none]
+[debug] [2022-12-22T20:36:02.519Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 200
+[debug] [2022-12-22T20:36:02.519Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 {"name":"operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/clone-d077e/locations/us-central1/functions/api","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/clone-d077e/locations/us-central1/functions/api","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"api","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"9982a1f854c80d5f1fd8ed93fddc46df3785571f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip?GoogleAccessId=service-697915260487@gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743161&Signature=CUVx2hOSyyOo7pq1q%2FJSNBOp4oCkMbzAQdRae%2Flk8GgI4PYkXRfRoRnfN68fIbWlfmIHy5h3H%2F1QSKVXcEAEnAte%2FWV8KYj9%2BA6X%2B6NRo7cHr2VCZWsnLZb4X50ReAz96aWj9cq0YWroowNvfDWnaBO%2BOsPt2ulcDAksyyQ2fC86rxKtQD5zCC6zquRBe31ANhQ%2FbpG6Up4CJYHFa0eRNpWGxkoa4Pq110t0oSjtlnkBrFBpMhTjpEPncmiX2ANXGkwdCuQar3N81hYxCsHxz3jzUT8yxtAGCIOTzryexgFVNn5gznuoNy6%2F%2BGvnO7ay0iW715AG8KwpD%2BS4RAmPAQ%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"clone-d077e\",\"storageBucket\":\"clone-d077e.appspot.com\"}","GCLOUD_PROJECT":"clone-d077e","EVENTARC_CLOUD_EVENT_SOURCE":"projects/clone-d077e/locations/us-central1/functions/api"},"runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2022-12-22T20:36:03Z"}}
+[debug] [2022-12-22T20:36:03.025Z] [create-default-us-central1-api] Retrying task index 0
+[debug] [2022-12-22T20:36:03.026Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 [none]
+[debug] [2022-12-22T20:36:03.271Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 200
+[debug] [2022-12-22T20:36:03.272Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 {"name":"operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/clone-d077e/locations/us-central1/functions/api","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/clone-d077e/locations/us-central1/functions/api","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"api","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"9982a1f854c80d5f1fd8ed93fddc46df3785571f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip?GoogleAccessId=service-697915260487@gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743161&Signature=CUVx2hOSyyOo7pq1q%2FJSNBOp4oCkMbzAQdRae%2Flk8GgI4PYkXRfRoRnfN68fIbWlfmIHy5h3H%2F1QSKVXcEAEnAte%2FWV8KYj9%2BA6X%2B6NRo7cHr2VCZWsnLZb4X50ReAz96aWj9cq0YWroowNvfDWnaBO%2BOsPt2ulcDAksyyQ2fC86rxKtQD5zCC6zquRBe31ANhQ%2FbpG6Up4CJYHFa0eRNpWGxkoa4Pq110t0oSjtlnkBrFBpMhTjpEPncmiX2ANXGkwdCuQar3N81hYxCsHxz3jzUT8yxtAGCIOTzryexgFVNn5gznuoNy6%2F%2BGvnO7ay0iW715AG8KwpD%2BS4RAmPAQ%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"clone-d077e\",\"storageBucket\":\"clone-d077e.appspot.com\"}","GCLOUD_PROJECT":"clone-d077e","EVENTARC_CLOUD_EVENT_SOURCE":"projects/clone-d077e/locations/us-central1/functions/api"},"runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2022-12-22T20:36:03Z"}}
+[debug] [2022-12-22T20:36:04.288Z] [create-default-us-central1-api] Retrying task index 0
+[debug] [2022-12-22T20:36:04.288Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 [none]
+[debug] [2022-12-22T20:36:04.597Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 200
+[debug] [2022-12-22T20:36:04.597Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 {"name":"operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/clone-d077e/locations/us-central1/functions/api","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/clone-d077e/locations/us-central1/functions/api","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"api","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"9982a1f854c80d5f1fd8ed93fddc46df3785571f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip?GoogleAccessId=service-697915260487@gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743161&Signature=CUVx2hOSyyOo7pq1q%2FJSNBOp4oCkMbzAQdRae%2Flk8GgI4PYkXRfRoRnfN68fIbWlfmIHy5h3H%2F1QSKVXcEAEnAte%2FWV8KYj9%2BA6X%2B6NRo7cHr2VCZWsnLZb4X50ReAz96aWj9cq0YWroowNvfDWnaBO%2BOsPt2ulcDAksyyQ2fC86rxKtQD5zCC6zquRBe31ANhQ%2FbpG6Up4CJYHFa0eRNpWGxkoa4Pq110t0oSjtlnkBrFBpMhTjpEPncmiX2ANXGkwdCuQar3N81hYxCsHxz3jzUT8yxtAGCIOTzryexgFVNn5gznuoNy6%2F%2BGvnO7ay0iW715AG8KwpD%2BS4RAmPAQ%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"clone-d077e\",\"storageBucket\":\"clone-d077e.appspot.com\"}","GCLOUD_PROJECT":"clone-d077e","EVENTARC_CLOUD_EVENT_SOURCE":"projects/clone-d077e/locations/us-central1/functions/api"},"runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2022-12-22T20:36:03Z"}}
+[debug] [2022-12-22T20:36:06.613Z] [create-default-us-central1-api] Retrying task index 0
+[debug] [2022-12-22T20:36:06.613Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 [none]
+[debug] [2022-12-22T20:36:06.877Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 200
+[debug] [2022-12-22T20:36:06.877Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 {"name":"operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/clone-d077e/locations/us-central1/functions/api","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/clone-d077e/locations/us-central1/functions/api","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"api","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"9982a1f854c80d5f1fd8ed93fddc46df3785571f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip?GoogleAccessId=service-697915260487@gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743161&Signature=CUVx2hOSyyOo7pq1q%2FJSNBOp4oCkMbzAQdRae%2Flk8GgI4PYkXRfRoRnfN68fIbWlfmIHy5h3H%2F1QSKVXcEAEnAte%2FWV8KYj9%2BA6X%2B6NRo7cHr2VCZWsnLZb4X50ReAz96aWj9cq0YWroowNvfDWnaBO%2BOsPt2ulcDAksyyQ2fC86rxKtQD5zCC6zquRBe31ANhQ%2FbpG6Up4CJYHFa0eRNpWGxkoa4Pq110t0oSjtlnkBrFBpMhTjpEPncmiX2ANXGkwdCuQar3N81hYxCsHxz3jzUT8yxtAGCIOTzryexgFVNn5gznuoNy6%2F%2BGvnO7ay0iW715AG8KwpD%2BS4RAmPAQ%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"clone-d077e\",\"storageBucket\":\"clone-d077e.appspot.com\"}","GCLOUD_PROJECT":"clone-d077e","EVENTARC_CLOUD_EVENT_SOURCE":"projects/clone-d077e/locations/us-central1/functions/api"},"runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2022-12-22T20:36:03Z"}}
+[debug] [2022-12-22T20:36:10.893Z] [create-default-us-central1-api] Retrying task index 0
+[debug] [2022-12-22T20:36:10.894Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 [none]
+[debug] [2022-12-22T20:36:11.159Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 200
+[debug] [2022-12-22T20:36:11.159Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 {"name":"operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/clone-d077e/locations/us-central1/functions/api","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/clone-d077e/locations/us-central1/functions/api","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"api","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"9982a1f854c80d5f1fd8ed93fddc46df3785571f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip?GoogleAccessId=service-697915260487@gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743161&Signature=CUVx2hOSyyOo7pq1q%2FJSNBOp4oCkMbzAQdRae%2Flk8GgI4PYkXRfRoRnfN68fIbWlfmIHy5h3H%2F1QSKVXcEAEnAte%2FWV8KYj9%2BA6X%2B6NRo7cHr2VCZWsnLZb4X50ReAz96aWj9cq0YWroowNvfDWnaBO%2BOsPt2ulcDAksyyQ2fC86rxKtQD5zCC6zquRBe31ANhQ%2FbpG6Up4CJYHFa0eRNpWGxkoa4Pq110t0oSjtlnkBrFBpMhTjpEPncmiX2ANXGkwdCuQar3N81hYxCsHxz3jzUT8yxtAGCIOTzryexgFVNn5gznuoNy6%2F%2BGvnO7ay0iW715AG8KwpD%2BS4RAmPAQ%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"clone-d077e\",\"storageBucket\":\"clone-d077e.appspot.com\"}","GCLOUD_PROJECT":"clone-d077e","EVENTARC_CLOUD_EVENT_SOURCE":"projects/clone-d077e/locations/us-central1/functions/api"},"runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2022-12-22T20:36:03Z"}}
+[debug] [2022-12-22T20:36:19.175Z] [create-default-us-central1-api] Retrying task index 0
+[debug] [2022-12-22T20:36:19.175Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 [none]
+[debug] [2022-12-22T20:36:19.496Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 200
+[debug] [2022-12-22T20:36:19.496Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 {"name":"operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/clone-d077e/locations/us-central1/functions/api","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/clone-d077e/locations/us-central1/functions/api","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"api","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"9982a1f854c80d5f1fd8ed93fddc46df3785571f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip?GoogleAccessId=service-697915260487@gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743161&Signature=CUVx2hOSyyOo7pq1q%2FJSNBOp4oCkMbzAQdRae%2Flk8GgI4PYkXRfRoRnfN68fIbWlfmIHy5h3H%2F1QSKVXcEAEnAte%2FWV8KYj9%2BA6X%2B6NRo7cHr2VCZWsnLZb4X50ReAz96aWj9cq0YWroowNvfDWnaBO%2BOsPt2ulcDAksyyQ2fC86rxKtQD5zCC6zquRBe31ANhQ%2FbpG6Up4CJYHFa0eRNpWGxkoa4Pq110t0oSjtlnkBrFBpMhTjpEPncmiX2ANXGkwdCuQar3N81hYxCsHxz3jzUT8yxtAGCIOTzryexgFVNn5gznuoNy6%2F%2BGvnO7ay0iW715AG8KwpD%2BS4RAmPAQ%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"clone-d077e\",\"storageBucket\":\"clone-d077e.appspot.com\"}","GCLOUD_PROJECT":"clone-d077e","EVENTARC_CLOUD_EVENT_SOURCE":"projects/clone-d077e/locations/us-central1/functions/api"},"runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2022-12-22T20:36:03Z","buildId":"a154320c-8e58-4cb3-bc13-bd5731fe1bab","buildName":"projects/697915260487/locations/us-central1/builds/a154320c-8e58-4cb3-bc13-bd5731fe1bab"}}
+[debug] [2022-12-22T20:36:29.503Z] [create-default-us-central1-api] Retrying task index 0
+[debug] [2022-12-22T20:36:29.504Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 [none]
+[debug] [2022-12-22T20:36:29.754Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 200
+[debug] [2022-12-22T20:36:29.754Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 {"name":"operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/clone-d077e/locations/us-central1/functions/api","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/clone-d077e/locations/us-central1/functions/api","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"api","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"9982a1f854c80d5f1fd8ed93fddc46df3785571f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip?GoogleAccessId=service-697915260487@gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743161&Signature=CUVx2hOSyyOo7pq1q%2FJSNBOp4oCkMbzAQdRae%2Flk8GgI4PYkXRfRoRnfN68fIbWlfmIHy5h3H%2F1QSKVXcEAEnAte%2FWV8KYj9%2BA6X%2B6NRo7cHr2VCZWsnLZb4X50ReAz96aWj9cq0YWroowNvfDWnaBO%2BOsPt2ulcDAksyyQ2fC86rxKtQD5zCC6zquRBe31ANhQ%2FbpG6Up4CJYHFa0eRNpWGxkoa4Pq110t0oSjtlnkBrFBpMhTjpEPncmiX2ANXGkwdCuQar3N81hYxCsHxz3jzUT8yxtAGCIOTzryexgFVNn5gznuoNy6%2F%2BGvnO7ay0iW715AG8KwpD%2BS4RAmPAQ%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"clone-d077e\",\"storageBucket\":\"clone-d077e.appspot.com\"}","GCLOUD_PROJECT":"clone-d077e","EVENTARC_CLOUD_EVENT_SOURCE":"projects/clone-d077e/locations/us-central1/functions/api"},"runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2022-12-22T20:36:03Z","buildId":"a154320c-8e58-4cb3-bc13-bd5731fe1bab","buildName":"projects/697915260487/locations/us-central1/builds/a154320c-8e58-4cb3-bc13-bd5731fe1bab"}}
+[debug] [2022-12-22T20:36:39.758Z] [create-default-us-central1-api] Retrying task index 0
+[debug] [2022-12-22T20:36:39.759Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 [none]
+[debug] [2022-12-22T20:36:40.028Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 200
+[debug] [2022-12-22T20:36:40.029Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 {"name":"operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/clone-d077e/locations/us-central1/functions/api","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/clone-d077e/locations/us-central1/functions/api","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"api","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"9982a1f854c80d5f1fd8ed93fddc46df3785571f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip?GoogleAccessId=service-697915260487@gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743161&Signature=CUVx2hOSyyOo7pq1q%2FJSNBOp4oCkMbzAQdRae%2Flk8GgI4PYkXRfRoRnfN68fIbWlfmIHy5h3H%2F1QSKVXcEAEnAte%2FWV8KYj9%2BA6X%2B6NRo7cHr2VCZWsnLZb4X50ReAz96aWj9cq0YWroowNvfDWnaBO%2BOsPt2ulcDAksyyQ2fC86rxKtQD5zCC6zquRBe31ANhQ%2FbpG6Up4CJYHFa0eRNpWGxkoa4Pq110t0oSjtlnkBrFBpMhTjpEPncmiX2ANXGkwdCuQar3N81hYxCsHxz3jzUT8yxtAGCIOTzryexgFVNn5gznuoNy6%2F%2BGvnO7ay0iW715AG8KwpD%2BS4RAmPAQ%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"clone-d077e\",\"storageBucket\":\"clone-d077e.appspot.com\"}","GCLOUD_PROJECT":"clone-d077e","EVENTARC_CLOUD_EVENT_SOURCE":"projects/clone-d077e/locations/us-central1/functions/api"},"runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2022-12-22T20:36:03Z","buildId":"a154320c-8e58-4cb3-bc13-bd5731fe1bab","buildName":"projects/697915260487/locations/us-central1/builds/a154320c-8e58-4cb3-bc13-bd5731fe1bab"}}
+[debug] [2022-12-22T20:36:50.035Z] [create-default-us-central1-api] Retrying task index 0
+[debug] [2022-12-22T20:36:50.035Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 [none]
+[debug] [2022-12-22T20:36:50.307Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 200
+[debug] [2022-12-22T20:36:50.307Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 {"name":"operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/clone-d077e/locations/us-central1/functions/api","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/clone-d077e/locations/us-central1/functions/api","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"api","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"9982a1f854c80d5f1fd8ed93fddc46df3785571f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip?GoogleAccessId=service-697915260487@gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743161&Signature=CUVx2hOSyyOo7pq1q%2FJSNBOp4oCkMbzAQdRae%2Flk8GgI4PYkXRfRoRnfN68fIbWlfmIHy5h3H%2F1QSKVXcEAEnAte%2FWV8KYj9%2BA6X%2B6NRo7cHr2VCZWsnLZb4X50ReAz96aWj9cq0YWroowNvfDWnaBO%2BOsPt2ulcDAksyyQ2fC86rxKtQD5zCC6zquRBe31ANhQ%2FbpG6Up4CJYHFa0eRNpWGxkoa4Pq110t0oSjtlnkBrFBpMhTjpEPncmiX2ANXGkwdCuQar3N81hYxCsHxz3jzUT8yxtAGCIOTzryexgFVNn5gznuoNy6%2F%2BGvnO7ay0iW715AG8KwpD%2BS4RAmPAQ%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"clone-d077e\",\"storageBucket\":\"clone-d077e.appspot.com\"}","GCLOUD_PROJECT":"clone-d077e","EVENTARC_CLOUD_EVENT_SOURCE":"projects/clone-d077e/locations/us-central1/functions/api"},"runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2022-12-22T20:36:03Z","buildId":"a154320c-8e58-4cb3-bc13-bd5731fe1bab","buildName":"projects/697915260487/locations/us-central1/builds/a154320c-8e58-4cb3-bc13-bd5731fe1bab"}}
+[debug] [2022-12-22T20:37:00.317Z] [create-default-us-central1-api] Retrying task index 0
+[debug] [2022-12-22T20:37:00.317Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 [none]
+[debug] [2022-12-22T20:37:00.583Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 200
+[debug] [2022-12-22T20:37:00.584Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 {"name":"operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/clone-d077e/locations/us-central1/functions/api","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/clone-d077e/locations/us-central1/functions/api","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"api","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"9982a1f854c80d5f1fd8ed93fddc46df3785571f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip?GoogleAccessId=service-697915260487@gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743161&Signature=CUVx2hOSyyOo7pq1q%2FJSNBOp4oCkMbzAQdRae%2Flk8GgI4PYkXRfRoRnfN68fIbWlfmIHy5h3H%2F1QSKVXcEAEnAte%2FWV8KYj9%2BA6X%2B6NRo7cHr2VCZWsnLZb4X50ReAz96aWj9cq0YWroowNvfDWnaBO%2BOsPt2ulcDAksyyQ2fC86rxKtQD5zCC6zquRBe31ANhQ%2FbpG6Up4CJYHFa0eRNpWGxkoa4Pq110t0oSjtlnkBrFBpMhTjpEPncmiX2ANXGkwdCuQar3N81hYxCsHxz3jzUT8yxtAGCIOTzryexgFVNn5gznuoNy6%2F%2BGvnO7ay0iW715AG8KwpD%2BS4RAmPAQ%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"clone-d077e\",\"storageBucket\":\"clone-d077e.appspot.com\"}","GCLOUD_PROJECT":"clone-d077e","EVENTARC_CLOUD_EVENT_SOURCE":"projects/clone-d077e/locations/us-central1/functions/api"},"runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2022-12-22T20:36:03Z","buildId":"a154320c-8e58-4cb3-bc13-bd5731fe1bab","buildName":"projects/697915260487/locations/us-central1/builds/a154320c-8e58-4cb3-bc13-bd5731fe1bab"}}
+[debug] [2022-12-22T20:37:10.591Z] [create-default-us-central1-api] Retrying task index 0
+[debug] [2022-12-22T20:37:10.592Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 [none]
+[debug] [2022-12-22T20:37:10.873Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 200
+[debug] [2022-12-22T20:37:10.873Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 {"name":"operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/clone-d077e/locations/us-central1/functions/api","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/clone-d077e/locations/us-central1/functions/api","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"api","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"9982a1f854c80d5f1fd8ed93fddc46df3785571f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip?GoogleAccessId=service-697915260487@gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743161&Signature=CUVx2hOSyyOo7pq1q%2FJSNBOp4oCkMbzAQdRae%2Flk8GgI4PYkXRfRoRnfN68fIbWlfmIHy5h3H%2F1QSKVXcEAEnAte%2FWV8KYj9%2BA6X%2B6NRo7cHr2VCZWsnLZb4X50ReAz96aWj9cq0YWroowNvfDWnaBO%2BOsPt2ulcDAksyyQ2fC86rxKtQD5zCC6zquRBe31ANhQ%2FbpG6Up4CJYHFa0eRNpWGxkoa4Pq110t0oSjtlnkBrFBpMhTjpEPncmiX2ANXGkwdCuQar3N81hYxCsHxz3jzUT8yxtAGCIOTzryexgFVNn5gznuoNy6%2F%2BGvnO7ay0iW715AG8KwpD%2BS4RAmPAQ%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"clone-d077e\",\"storageBucket\":\"clone-d077e.appspot.com\"}","GCLOUD_PROJECT":"clone-d077e","EVENTARC_CLOUD_EVENT_SOURCE":"projects/clone-d077e/locations/us-central1/functions/api"},"runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2022-12-22T20:36:03Z","buildId":"a154320c-8e58-4cb3-bc13-bd5731fe1bab","sourceToken":"130ed4c4-0186-4ea5-98f5-9cf6c724bdd0","buildName":"projects/697915260487/locations/us-central1/builds/a154320c-8e58-4cb3-bc13-bd5731fe1bab"}}
+[debug] [2022-12-22T20:37:10.874Z] Got source token 130ed4c4-0186-4ea5-98f5-9cf6c724bdd0 for region us-central1
+[debug] [2022-12-22T20:37:20.883Z] [create-default-us-central1-api] Retrying task index 0
+[debug] [2022-12-22T20:37:20.884Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 [none]
+[debug] [2022-12-22T20:37:21.160Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 200
+[debug] [2022-12-22T20:37:21.161Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 {"name":"operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/clone-d077e/locations/us-central1/functions/api","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/clone-d077e/locations/us-central1/functions/api","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"api","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"9982a1f854c80d5f1fd8ed93fddc46df3785571f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip?GoogleAccessId=service-697915260487@gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743161&Signature=CUVx2hOSyyOo7pq1q%2FJSNBOp4oCkMbzAQdRae%2Flk8GgI4PYkXRfRoRnfN68fIbWlfmIHy5h3H%2F1QSKVXcEAEnAte%2FWV8KYj9%2BA6X%2B6NRo7cHr2VCZWsnLZb4X50ReAz96aWj9cq0YWroowNvfDWnaBO%2BOsPt2ulcDAksyyQ2fC86rxKtQD5zCC6zquRBe31ANhQ%2FbpG6Up4CJYHFa0eRNpWGxkoa4Pq110t0oSjtlnkBrFBpMhTjpEPncmiX2ANXGkwdCuQar3N81hYxCsHxz3jzUT8yxtAGCIOTzryexgFVNn5gznuoNy6%2F%2BGvnO7ay0iW715AG8KwpD%2BS4RAmPAQ%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"clone-d077e\",\"storageBucket\":\"clone-d077e.appspot.com\"}","GCLOUD_PROJECT":"clone-d077e","EVENTARC_CLOUD_EVENT_SOURCE":"projects/clone-d077e/locations/us-central1/functions/api"},"runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2022-12-22T20:36:03Z","buildId":"a154320c-8e58-4cb3-bc13-bd5731fe1bab","sourceToken":"130ed4c4-0186-4ea5-98f5-9cf6c724bdd0","buildName":"projects/697915260487/locations/us-central1/builds/a154320c-8e58-4cb3-bc13-bd5731fe1bab"}}
+[debug] [2022-12-22T20:37:21.161Z] Got source token 130ed4c4-0186-4ea5-98f5-9cf6c724bdd0 for region us-central1
+[debug] [2022-12-22T20:37:31.166Z] [create-default-us-central1-api] Retrying task index 0
+[debug] [2022-12-22T20:37:31.166Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 [none]
+[debug] [2022-12-22T20:37:31.453Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 200
+[debug] [2022-12-22T20:37:31.453Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4 {"name":"operations/Y2xvbmUtZDA3N2UvdXMtY2VudHJhbDEvYXBpL3NDajdFUmpvUGM4","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/clone-d077e/locations/us-central1/functions/api","type":"CREATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/clone-d077e/locations/us-central1/functions/api","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"api","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"9982a1f854c80d5f1fd8ed93fddc46df3785571f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip?GoogleAccessId=service-697915260487@gcf-admin-robot.iam.gserviceaccount.com&Expires=1671743161&Signature=CUVx2hOSyyOo7pq1q%2FJSNBOp4oCkMbzAQdRae%2Flk8GgI4PYkXRfRoRnfN68fIbWlfmIHy5h3H%2F1QSKVXcEAEnAte%2FWV8KYj9%2BA6X%2B6NRo7cHr2VCZWsnLZb4X50ReAz96aWj9cq0YWroowNvfDWnaBO%2BOsPt2ulcDAksyyQ2fC86rxKtQD5zCC6zquRBe31ANhQ%2FbpG6Up4CJYHFa0eRNpWGxkoa4Pq110t0oSjtlnkBrFBpMhTjpEPncmiX2ANXGkwdCuQar3N81hYxCsHxz3jzUT8yxtAGCIOTzryexgFVNn5gznuoNy6%2F%2BGvnO7ay0iW715AG8KwpD%2BS4RAmPAQ%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"clone-d077e\",\"storageBucket\":\"clone-d077e.appspot.com\"}","GCLOUD_PROJECT":"clone-d077e","EVENTARC_CLOUD_EVENT_SOURCE":"projects/clone-d077e/locations/us-central1/functions/api"},"runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"1","updateTime":"2022-12-22T20:37:29Z","buildId":"a154320c-8e58-4cb3-bc13-bd5731fe1bab","sourceToken":"130ed4c4-0186-4ea5-98f5-9cf6c724bdd0","buildName":"projects/697915260487/locations/us-central1/builds/a154320c-8e58-4cb3-bc13-bd5731fe1bab"},"done":true,"response":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/clone-d077e/locations/us-central1/functions/api","httpsTrigger":{"url":"https://us-central1-clone-d077e.cloudfunctions.net/api","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"api","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"clone-d077e@appspot.gserviceaccount.com","updateTime":"2022-12-22T20:37:29.238Z","versionId":"1","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"9982a1f854c80d5f1fd8ed93fddc46df3785571f"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-787573019360.us-central1.cloudfunctions.appspot.com/a1679ab9-d94e-486f-a6dd-73c29d911f17.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"clone-d077e\",\"storageBucket\":\"clone-d077e.appspot.com\"}","GCLOUD_PROJECT":"clone-d077e","EVENTARC_CLOUD_EVENT_SOURCE":"projects/clone-d077e/locations/us-central1/functions/api"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"a154320c-8e58-4cb3-bc13-bd5731fe1bab","buildName":"projects/697915260487/locations/us-central1/builds/a154320c-8e58-4cb3-bc13-bd5731fe1bab","dockerRegistry":"ARTIFACT_REGISTRY"}}
+[debug] [2022-12-22T20:37:31.455Z] Got source token 130ed4c4-0186-4ea5-98f5-9cf6c724bdd0 for region us-central1
+[debug] [2022-12-22T20:37:31.456Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions/api:setIamPolicy [none]
+[debug] [2022-12-22T20:37:31.456Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions/api:setIamPolicy {"policy":{"bindings":[{"role":"roles/cloudfunctions.invoker","members":["allUsers"]}],"etag":"","version":3},"updateMask":"bindings,etag,version"}
+[debug] [2022-12-22T20:37:31.857Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions/api:setIamPolicy 200
+[debug] [2022-12-22T20:37:31.857Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/clone-d077e/locations/us-central1/functions/api:setIamPolicy {"version":1,"etag":"BwXwcKN0FhQ=","bindings":[{"role":"roles/cloudfunctions.invoker","members":["allUsers"]}]}
+[info] +  functions[api(us-central1)] Successful create operation. 
+[debug] [2022-12-22T20:37:31.859Z] Total Function Deployment time: 90520
+[debug] [2022-12-22T20:37:31.859Z] 1 Functions Deployed
+[debug] [2022-12-22T20:37:31.860Z] 0 Functions Errored
+[debug] [2022-12-22T20:37:31.860Z] 0 Function Deployments Aborted
+[debug] [2022-12-22T20:37:31.860Z] Average Function Deployment time: 90519
+[info] Function URL (api(us-central1)): https://us-central1-clone-d077e.cloudfunctions.net/api
+[info] i  functions: cleaning up build files... 
+[debug] [2022-12-22T20:37:31.862Z] >>> [apiv2][query] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/clone-d077e/locations/us-central1/repositories/gcf-artifacts/packages/api [none]
+[debug] [2022-12-22T20:37:31.863Z] >>> [apiv2][query] GET https://us.gcr.io/v2/clone-d077e/gcf/us-central1/tags/list [none]
+[debug] [2022-12-22T20:37:32.110Z] <<< [apiv2][status] GET https://us.gcr.io/v2/clone-d077e/gcf/us-central1/tags/list 200
+[debug] [2022-12-22T20:37:32.110Z] <<< [apiv2][body] GET https://us.gcr.io/v2/clone-d077e/gcf/us-central1/tags/list {"child":[],"manifest":{},"name":"clone-d077e/gcf/us-central1","tags":[]}
+[debug] [2022-12-22T20:37:32.110Z] Could not find image for function projects/clone-d077e/locations/us-central1/functions/api
+[debug] [2022-12-22T20:37:32.220Z] <<< [apiv2][status] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/clone-d077e/locations/us-central1/repositories/gcf-artifacts/packages/api 200
+[debug] [2022-12-22T20:37:32.220Z] <<< [apiv2][body] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/clone-d077e/locations/us-central1/repositories/gcf-artifacts/packages/api {"name":"projects/clone-d077e/locations/us-central1/operations/83761053-0a5b-4082-92fc-5199c3963725","metadata":{"@type":"type.googleapis.com/google.devtools.artifactregistry.v1beta2.OperationMetadata"}}
+[debug] [2022-12-22T20:37:32.221Z] >>> [apiv2][query] GET https://artifactregistry.googleapis.com/v1beta2/projects/clone-d077e/locations/us-central1/operations/83761053-0a5b-4082-92fc-5199c3963725 [none]
+[debug] [2022-12-22T20:37:32.577Z] <<< [apiv2][status] GET https://artifactregistry.googleapis.com/v1beta2/projects/clone-d077e/locations/us-central1/operations/83761053-0a5b-4082-92fc-5199c3963725 200
