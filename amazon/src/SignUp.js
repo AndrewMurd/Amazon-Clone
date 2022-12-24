@@ -13,9 +13,31 @@ function SignUp() {
     const [password, setPassword] = useState('');
     const [firstName, setfirstName] = useState('');
     const [lastName, setlastName] = useState('');
+    const [isHidden, setIsHidden] = useState(true);
+    const [errorTxt, setErrorTxt] = useState('');
+
+    const validateEmail = (email) => {
+        return String(email)
+            .toLowerCase()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+    };
 
     const register = e => {
         e.preventDefault();
+
+        if (firstName == '') {
+            setIsHidden(false);
+            setErrorTxt('You must enter a first name :)');
+            return;
+        }
+
+        if (lastName == '') {
+            setIsHidden(false);
+            setErrorTxt('You must enter a last name :)');
+            return;
+        }
 
         auth
             .createUserWithEmailAndPassword(email, password)
@@ -38,7 +60,19 @@ function SignUp() {
                     user: auth.user,
                 })
             })
-            .catch(error => alert(error.message))
+            .catch(error => {
+                if (!validateEmail(email)) {
+                    setIsHidden(false);
+                    setErrorTxt('You must enter a valid email :)');
+                    return;
+                } else if (password == '') {
+                    setIsHidden(false);
+                    setErrorTxt('You must enter a password :)');
+                    return;
+                }
+                setIsHidden(false);
+                setErrorTxt(error.message);
+            })
     }
 
     return (
@@ -51,17 +85,18 @@ function SignUp() {
                 <h1>Sign-Up</h1>
                 <form>
                     <h5>First Name</h5>
-                    <input type='text' value={firstName} onChange={e => setfirstName(e.target.value)} />
+                    <input className='signUp_firstNameInput' type='text' value={firstName} onChange={e => setfirstName(e.target.value)} />
 
                     <h5>Last Name</h5>
-                    <input type='text' value={lastName} onChange={e => setlastName(e.target.value)} />
+                    <input className='signUp_lastNameInput' type='text' value={lastName} onChange={e => setlastName(e.target.value)} />
 
                     <h5>E-mail</h5>
-                    <input type='text' value={email} onChange={e => setEmail(e.target.value)} />
+                    <input className='signUp_emailInput' type='text' value={email} onChange={e => setEmail(e.target.value)} />
 
                     <h5>Password</h5>
-                    <input type='password' value={password} onChange={e => setPassword(e.target.value)} />
+                    <input className='signUp_passwordInput' type='password' value={password} onChange={e => setPassword(e.target.value)} />
 
+                    <h6 className={isHidden ? 'signUp_errorMsg_isHidden' : 'signUp_errorMsg_notHidden'}>{errorTxt}</h6>
                     <button onClick={register} className='signUp_registerButton'>Create Account</button>
                 </form>
             </div>

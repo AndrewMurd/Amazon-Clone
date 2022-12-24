@@ -9,10 +9,11 @@ import { getBasketSubtotal } from './reducer';
 import { useNavigate } from 'react-router-dom';
 import axios from './axios';
 import { db } from './firebase';
+import ShippingAddress from './ShippingAddress';
 
 function Payment() {
     const navigate = useNavigate();
-    const [{ basket, user }, dispatch] = useStateValue();
+    const [{ basket, user, address }, dispatch] = useStateValue();
 
     const stripe = useStripe();
     const elements = useElements();
@@ -88,6 +89,7 @@ function Payment() {
 
     return (
         <div className='payment'>
+            <ShippingAddress></ShippingAddress>
             <div className='payment_container'>
                 <h1>
                     Checkout (<Link to='/checkout'>{basket?.length} items</Link>)
@@ -98,8 +100,7 @@ function Payment() {
                     </div>
                     <div className='payment_address'>
                         <p>{user?.email}</p>
-                        <p>1423 Telephone Rd</p>
-                        <p>Colborne, ON</p>
+                        <p>{address}</p>
                     </div>
                 </div>
                 <div className='payment_section'>

@@ -4,6 +4,8 @@ const initialState = {
     user: null,
     firstName: null,
     lastName: null,
+    address: null,
+    popup: false,
 }
 
 const getBasketSubtotal = (basket) => {
@@ -56,6 +58,16 @@ const reducer = (state, action) => {
                 ...state,
                 firstName: action.firstName,
                 lastName: action.lastName,
+            }
+        case 'SET_ADDRESS':
+            return {
+                ...state,
+                address: action.address,
+            }
+        case 'OPEN_POPUP':
+            return {
+                ...state,
+                popup: action.popup,
             }
         default:
             return state;

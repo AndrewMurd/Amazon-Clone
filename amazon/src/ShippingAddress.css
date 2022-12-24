@@ -1,0 +1,87 @@
+
+.shippingAddress_popup {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    max-height: 600px;
+    min-height: 400px;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    border-radius: 15px;
+}
+
+.shippingAddress_popup-hidden {
+    display: none;
+}
+
+
+.shippingAddress_header {
+    height: 60px;
+    background-color: rgb(230, 230, 230);
+    border-bottom: 1px solid rgb(201, 201, 201);
+    border-radius: 15px 15px 0px 0px;
+}
+
+.shippingAddress_header > strong {
+    position: relative;
+    top: 32%;
+    left: 8%;
+}
+
+.location-search-input {
+    width: 80%;
+    height: 30px;
+    border-radius: 4px;
+    border-style: solid;
+}
+
+.location-search-input-error {
+    width: 80%;
+    height: 30px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: red;
+}
+
+.shippingAddress_suggestions {
+    position: relative;
+    left: 9%;
+    top: 10px;
+}
+
+.shippingAddress_suggestion {
+    cursor: pointer;
+}
+
+.suggestion-item--active {
+    background-color: #dddddd;
+    cursor: pointer;
+}
+
+.suggestion-item {
+    cursor: pointer;
+}
+
+.autocomplete-dropdown-container {
+    max-width: 488px;
+}
+
+.shippingAddress_submit {
+    position: relative;
+    left: 9%;
+    max-width: 488px;
+    top: 25px;
+    height: 30px;
+}
+
+.shippingAddress_submit-hidden {
+    display: none;
+    position: relative;
+    left: 9%;
+    max-width: 488px;
+    top: 25px;
+}

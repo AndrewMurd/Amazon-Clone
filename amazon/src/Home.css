@@ -15,3 +15,11 @@
     flex-wrap: wrap;
 }
 
+.home_popup {
+    display: none;
+}
+
+.home_popup-show {
+    display: none;
+}
+

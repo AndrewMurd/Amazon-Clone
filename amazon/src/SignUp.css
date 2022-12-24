@@ -46,6 +46,16 @@
     font-size: 12px;
 }
 
+.signUp_errorMsg_notHidden {
+    visibility: visible;
+    color: red;
+}
+
+.signUp_errorMsg_isHidden {
+    visibility: hidden;
+    color: red;
+}
+
 .signUp_registerButton {
     background: #f0c14b;
     border-radius: 2px;

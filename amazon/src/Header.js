@@ -7,7 +7,7 @@ import { useStateValue } from './StateProvider';
 import { auth } from './firebase';
 
 function Header() {
-    const [{ basket, user, firstName }, dispatch] = useStateValue();
+    const [{ basket, user, firstName, popup, address }, dispatch] = useStateValue();
     const [searchVal, setSearchVal] = useState();
 
     const handleAuthentication = () => {
@@ -23,17 +23,35 @@ function Header() {
         })
     }
 
+    const getAddressFormat = () => {
+        let num = (address.match(new RegExp(",", "g")) || []).length;
+        return address.split(", ").slice(num / 2).join(", ");
+    }
+
     return (
         <div className='header'>
             <Link to='/'>
                 <img className='header_logo' src='http://pngimg.com/uploads/amazon/amazon_PNG11.png' alt='logo'></img>
             </Link>
-
+            <div onClick={() => {
+                dispatch({
+                    type: 'OPEN_POPUP',
+                    popup: !popup,
+                })
+            }} className='header_address'>
+                <div className='header_option'>
+                    <span className='header_optionLineOne'>
+                        Deliver to {firstName ? firstName: 'Guest'}
+                    </span>
+                    <span className='header_optionLineTwo'>
+                        {address? getAddressFormat() : 'Click here to enter address'}
+                    </span>
+                </div>
+            </div>
             <div className='header_search'>
                 <input onChange={e => callSearch(e.target.value)} className='header_searchInput' type='text'></input>
                 <SearchIcon className='header_searchIcon'></SearchIcon>
             </div>
-
             <div className='header_nav'>
                 <Link to={!user && '/login'}>
                     <div onClick={handleAuthentication} className='header_option'>

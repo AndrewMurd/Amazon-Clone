@@ -7,7 +7,7 @@ import { getBasketSubtotal } from './reducer';
 
 function Subtotal() {
     const navigate = useNavigate();
-    const [{basket}, dispatch] = useStateValue();
+    const [{basket, user}, dispatch] = useStateValue();
 
     return (
         <div className='subtotal'>
@@ -28,7 +28,13 @@ function Subtotal() {
                 thousandSeparator={true}
                 prefix={'$'}
             />
-            <button disabled={basket.length === 0 ? true : false} onClick={e => navigate('/payment')}>Proceed to Checkout</button>
+            <button disabled={basket.length === 0 ? true : false} onClick={e => {
+                if (user) {
+                    navigate('/payment');
+                } else {
+                    alert('You must be logged in to checkout :)');
+                }
+            }}>Proceed to Checkout</button>
         </div>
     )
 }

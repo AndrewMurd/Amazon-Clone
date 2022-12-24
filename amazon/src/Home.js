@@ -3,6 +3,7 @@ import './Home.css';
 import Product from './Product';
 import { db } from './firebase';
 import { useStateValue } from './StateProvider';
+import ShippingAddress from './ShippingAddress';
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -51,6 +52,7 @@ function Home() {
   return (
     <div className='home'>
       <div className='home_container'>
+        <ShippingAddress></ShippingAddress>
         <div className='home_row'>
           {searchProducts?.map((product, index) => {
             return (

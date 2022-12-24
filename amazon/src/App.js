@@ -19,7 +19,7 @@ const promise = loadStripe(
 );
 
 function App() {
-  const [{ user, firstName }, dispatch] = useStateValue();
+  const [{ popup }, dispatch] = useStateValue();
 
   useEffect(() => {
     auth.onAuthStateChanged(authUser => {
@@ -60,6 +60,12 @@ function App() {
   return (
     <Router>
       <div className='app'>
+        <div onClick={() => {
+          dispatch({
+            type: 'OPEN_POPUP',
+            popup: !popup,
+          })
+        }} className={popup?'cover':''}></div>
         <Routes>
           <Route path="/checkout" element={[<Header />, <Checkout />]} />
           <Route path="/payment" element={[<Header />, <Elements stripe={promise}> <Payment /> </Elements>]} />

@@ -4,8 +4,8 @@
     align-items: center;
     margin: 10px;
     padding: 20px;
-    width: 20%;
-    min-width: 100px;
+    max-width: 20%;
+    /* min-width: auto; */
     background-color: white;
     z-index: 1;
     transition: transform 0.2s;
