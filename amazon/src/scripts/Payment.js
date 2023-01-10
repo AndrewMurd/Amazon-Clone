@@ -2,18 +2,17 @@ import React, { useEffect, useState } from 'react';
 import CheckoutProduct from './CheckoutProduct';
 import { useStateValue } from './StateProvider';
 import { Link } from 'react-router-dom';
-import './Payment.css';
+import '../styles/Payment.css';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 import { getBasketSubtotal } from './reducer';
 import { useNavigate } from 'react-router-dom';
 import axios from './axios';
 import { db } from './firebase';
-import ShippingAddress from './ShippingAddress';
 
 function Payment() {
     const navigate = useNavigate();
-    const [{ basket, user, address }, dispatch] = useStateValue();
+    const [{ basket, user, address, popup }, dispatch] = useStateValue();
 
     const stripe = useStripe();
     const elements = useElements();
@@ -25,22 +24,23 @@ function Payment() {
     const [clientSecret, setClientSecret] = useState(true);
 
     useEffect(() => {
-        // generate the special stripe secret which allows us to charge a customer
+        if (basket.length == 0) {
+            navigate('/');
+        }
+
+        // generate the stripe secret which allows us to charge a customer
         const getClientSecret = async () => {
             const response = await axios({
                 method: 'post',
-                // Stripe expects the total in a currencies subunits
-                url: `/payments/create?total=${getBasketSubtotal(basket) * 100}`
+                // stripe expects the total in a currencies subunits (*100)
+                url: `/payments/create?total=${parseInt(getBasketSubtotal(basket) * 100)}`
             });
             setClientSecret(response.data.clientSecret)
         }
-
         getClientSecret();
     }, [basket])
 
-    // console.log('THE SECRET IS >>>', clientSecret)
-    // console.log('👱', user)
-
+    // submit and complete payment order to stripec
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -49,25 +49,24 @@ function Payment() {
         }
 
         setProcessing(true);
-
+        
         const payload = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: elements.getElement(CardElement)
             }
         }).then(({ paymentIntent }) => {
-            // console.log(paymentIntent);
-            // console.log(basket);
-
+            // send order to database
             db
-              .collection('users')
-              .doc(user?.uid)
-              .collection('orders')
-              .doc(paymentIntent.id)
-              .set({
-                  basket: basket,
-                  amount: paymentIntent.amount,
-                  created: paymentIntent.created,
-              })
+                .collection('users')
+                .doc(user?.uid)
+                .collection('orders')
+                .doc(paymentIntent.id)
+                .set({
+                    basket: basket,
+                    amount: paymentIntent.amount,
+                    created: paymentIntent.created,
+                    address: address,
+                })
 
             setSucceeded(true);
             setError(null);
@@ -83,13 +82,14 @@ function Payment() {
     }
 
     const handleChange = e => {
-        setDisabled(e.empty);
+        if (address) {
+            setDisabled(e.empty);
+        }
         setError(e.error ? e.error.message : '');
     }
 
     return (
         <div className='payment'>
-            <ShippingAddress></ShippingAddress>
             <div className='payment_container'>
                 <h1>
                     Checkout (<Link to='/checkout'>{basket?.length} items</Link>)
@@ -98,9 +98,16 @@ function Payment() {
                     <div className='payment_title'>
                         <h3>Delivery address</h3>
                     </div>
-                    <div className='payment_address'>
+                    <div onClick={() => {
+                        dispatch({
+                            type: 'OPEN_POPUP',
+                            popup: !popup,
+                        })
+                    }} className='payment_address'>
                         <p>{user?.email}</p>
-                        <p>{address}</p>
+                        <p className={address ? '' : 'payment_addressLineTwo-error'}>
+                            {address ? address : 'Click Here to Select an Address before Proceeding!'}
+                        </p>
                     </div>
                 </div>
                 <div className='payment_section'>
@@ -110,11 +117,12 @@ function Payment() {
                     <div className='payment_items'>
                         {basket.map(item => (
                             <CheckoutProduct
-                                id={item.id}
-                                title={item.title}
-                                image={item.image}
-                                price={item.price}
-                                rating={item.rating}
+                                quantity={item.quantity}
+                                id={item.content.id}
+                                title={item.content.title}
+                                image={item.content.image}
+                                price={item.content.price}
+                                rating={item.content.rating}
                             />
                         ))}
                     </div>

@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import './Home.css';
+import '../styles/Home.css';
 import Product from './Product';
 import { db } from './firebase';
 import { useStateValue } from './StateProvider';
-import ShippingAddress from './ShippingAddress';
 
 function Home() {
   const [products, setProducts] = useState([]);
   const [searchProducts, setSearchProducts] = useState([]);
   const [{ searchInput }, dispatch] = useStateValue();
-
+  
+  // get products from database
   useEffect(() => {
     db
       .collection('products')
@@ -21,6 +21,7 @@ function Home() {
       })
   }, [])
 
+  // create list of searched for products
   useEffect(() => {
     db
       .collection('products')
@@ -52,7 +53,6 @@ function Home() {
   return (
     <div className='home'>
       <div className='home_container'>
-        <ShippingAddress></ShippingAddress>
         <div className='home_row'>
           {searchProducts?.map((product, index) => {
             return (

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import './Login.css';
 import { auth } from './firebase';
 import { Link, useNavigate } from 'react-router-dom';
-import './SignUp.css';
+import '../styles/SignUp.css';
 import { useStateValue } from './StateProvider';
 import { db } from './firebase';
+import { validateEmail } from './reducer';
 
 function SignUp() {
-    const [{ basket, user }, dispatch] = useStateValue();
+    const [{}, dispatch] = useStateValue();
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -16,14 +16,7 @@ function SignUp() {
     const [isHidden, setIsHidden] = useState(true);
     const [errorTxt, setErrorTxt] = useState('');
 
-    const validateEmail = (email) => {
-        return String(email)
-            .toLowerCase()
-            .match(
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            );
-    };
-
+    // handle registration of new account to firebase
     const register = e => {
         e.preventDefault();
 
@@ -42,10 +35,7 @@ function SignUp() {
         auth
             .createUserWithEmailAndPassword(email, password)
             .then((auth) => {
-                console.log(auth);
-                if (auth) {
-                    navigate('/');
-                }
+                const localStorageBasket = JSON.parse(localStorage.getItem('basket'));
 
                 db
                     .collection('users')
@@ -54,11 +44,15 @@ function SignUp() {
                         firstName: firstName,
                         lastName: lastName,
                         email: email,
-                    })
+                        basket: localStorageBasket,
+                    }, { merge: true });
+
                 dispatch({
                     type: 'SET_USER',
                     user: auth.user,
-                })
+                });
+
+                navigate('/');
             })
             .catch(error => {
                 if (!validateEmail(email)) {

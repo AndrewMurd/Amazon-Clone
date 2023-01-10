@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import './Orders.css';
+import '../styles/Orders.css';
 import { useStateValue } from './StateProvider';
 import { db } from './firebase';
 import Order from './Order';
 
 function Orders() {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
   const [orders, setOrders] = useState([]);
-
+  
+  // get orders from database
   useEffect(() => {
     if (user) {
       db
@@ -21,10 +22,8 @@ function Orders() {
           data: doc.data(),
         })))
       })
-    } else {
-      setOrders([]);
     }
-  }, [])
+  })
 
   return (
     <div className='orders'>

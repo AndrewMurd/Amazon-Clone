@@ -1,5 +1,5 @@
 import React from 'react';
-import './Subtotal.css';
+import '../styles/Subtotal.css';
 import CurrencyFormat from 'react-currency-format';
 import { useStateValue } from './StateProvider';
 import { useNavigate } from 'react-router-dom';
@@ -17,9 +17,9 @@ function Subtotal() {
                         <p>
                             Subtotal ({basket.length} items): <strong>{value}</strong>
                         </p>
-                        <small className='subtotal_gift'>
+                        {/* <small className='subtotal_gift'>
                             <input type='checkbox' /> This order contains a gift
-                        </small>
+                        </small> */}
                     </>
                 )}
                 decimalScale={2}
@@ -32,7 +32,7 @@ function Subtotal() {
                 if (user) {
                     navigate('/payment');
                 } else {
-                    alert('You must be logged in to checkout :)');
+                    navigate('/login');
                 }
             }}>Proceed to Checkout</button>
         </div>

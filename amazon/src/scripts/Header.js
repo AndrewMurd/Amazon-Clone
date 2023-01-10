@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import './Header.css';
+import React from 'react';
+import '../styles/Header.css';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,6 @@ import { auth } from './firebase';
 
 function Header() {
     const [{ basket, user, firstName, popup, address }, dispatch] = useStateValue();
-    const [searchVal, setSearchVal] = useState();
 
     const handleAuthentication = () => {
         if (user) {
@@ -22,7 +21,7 @@ function Header() {
             value: value,
         })
     }
-
+    // get formatted version of address
     const getAddressFormat = () => {
         let num = (address.match(new RegExp(",", "g")) || []).length;
         return address.split(", ").slice(num / 2).join(", ");
@@ -63,7 +62,7 @@ function Header() {
                         </span>
                     </div>
                 </Link>
-                <Link to='/orders'>
+                <Link to={user ?  '/orders' : '/login'}>
                     <div className='header_option'>
                         <span className='header_optionLineOne'>
                             Returns

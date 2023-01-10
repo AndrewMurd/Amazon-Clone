@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ShippingAddress.css';
+import '../styles/ShippingAddress.css';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import { db } from './firebase';
 import { useStateValue } from './StateProvider';
@@ -7,16 +7,18 @@ import { useStateValue } from './StateProvider';
 function ShippingAddress() {
     const [address, setAddress] = useState('');
     const [selected, setSelected] = useState(false);
-    const [{ popup }, dispatch] = useStateValue();
+    const [{ popup, user }, dispatch] = useStateValue();
 
+    // set address in database and datalayer
     const submitAddress = () => {
-        console.log(address);
-        // db
-        //     .collection('users')
-        //     .doc(user?.uid)
-        //     .set({
-        //         address: address,
-        //     })
+        if (user) {
+            db
+                .collection('users')
+                .doc(user?.uid)
+                .set({
+                    address: address,
+                }, { merge: true })
+        }
         dispatch({
             type: 'SET_ADDRESS',
             address: address,
@@ -28,11 +30,12 @@ function ShippingAddress() {
     }
 
     return (
-        <div className={popup ? 'shippingAddress_popup': 'shippingAddress_popup-hidden'}>
+        <div className={popup ? 'shippingAddress_popup' : 'shippingAddress_popup-hidden'}>
             <div className='shippingAddress_header'>
                 <strong>Choose your location</strong>
             </div>
             <div className='shippingAddress_suggestions'>
+                {/* PlacesAutocomplete component from https://github.com/hibiken/react-places-autocomplete#load-google-library */}
                 <PlacesAutocomplete
                     value={address}
                     onChange={e => {
@@ -55,18 +58,20 @@ function ShippingAddress() {
                             <div className="autocomplete-dropdown-container">
                                 {loading && <div>Loading...</div>}
                                 {suggestions.map(suggestion => {
-                                    const className = suggestion.active
-                                        ? 'suggestion-item--active'
-                                        : 'suggestion-item';
-                                    return (
-                                        <div
-                                            {...getSuggestionItemProps(suggestion, {
-                                                className,
-                                            })}
-                                        >
-                                            <small className='shippingAddress_suggestion'>{suggestion.description}</small>
-                                        </div>
-                                    );
+                                    if (suggestion.types.includes('street_address')) {
+                                        const className = suggestion.active
+                                            ? 'suggestion-item--active'
+                                            : 'suggestion-item';
+                                        return (
+                                            <div
+                                                {...getSuggestionItemProps(suggestion, {
+                                                    className,
+                                                })}
+                                            >
+                                                <small className='shippingAddress_suggestion'>{suggestion.description}</small>
+                                            </div>
+                                        );
+                                    }
                                 })}
                             </div>
                         </div>

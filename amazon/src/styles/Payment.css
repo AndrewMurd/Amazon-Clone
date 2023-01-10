@@ -1,5 +1,7 @@
 .payment {
     background-color: white;
+    margin-right: 10%;
+    margin-left: 10%;
 }
 
 .payment_container > h1 {
@@ -25,8 +27,16 @@
     flex: 0.2;
 }
 
+.payment_address {
+    cursor: pointer;
+}
+
 .payment_address, .payment_items, .payment_details {
     flex: 0.8;
+}
+
+.payment_addressLineTwo-error {
+    color: red;
 }
 
 .payment_details > form {
