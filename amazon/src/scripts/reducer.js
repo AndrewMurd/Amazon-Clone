@@ -69,7 +69,7 @@ const reducer = (state, action) => {
             let newBasket_ADD_TO_BASKET = [...state.basket];
             for (let i = 0; i < newBasket_ADD_TO_BASKET.length; i++) {
                 if (newBasket_ADD_TO_BASKET[i].content.id == action.item.id) {
-                    newBasket_ADD_TO_BASKET[i].quantity += 0.5; // reducer is called twice, idk why (should be "+= 1")
+                    newBasket_ADD_TO_BASKET[i].quantity += 1;
                     return {
                         ...state,
                         basket: newBasket_ADD_TO_BASKET,
