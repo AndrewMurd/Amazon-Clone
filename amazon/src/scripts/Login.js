@@ -4,36 +4,32 @@ import { auth } from './firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import { db } from './firebase';
 import { addTwoBaskets, validateEmail } from './reducer';
+import { useStateValue } from './StateProvider';
 
 function Login() {
     const navigate = useNavigate();
+    const [{}, dispatch] = useStateValue();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isHidden, setIsHidden] = useState(true);
     const [errorTxt, setErrorTxt] = useState('');
-    const [dbBasket, setDbBasket] = useState();
 
     // handle sign in to firebase
     const signIn = async e => {
         e.preventDefault();
         auth
             .signInWithEmailAndPassword(email, password)
-            .then(auth => {
-                // get basket from local storage and basket from user's id in database
-                const localStorageBasket = JSON.parse(localStorage.getItem('basket')); 
+            .then(async auth => {
 
-                db.collection('users').doc(auth.user.uid).onSnapshot(doc => {
-                    /* add basket from local storage and database together so when user logs in 
-                    they preserve the basket they had when logged out */
-                    setDbBasket(addTwoBaskets(doc.data().basket, localStorageBasket));
-                });
+                const userRef = db.collection('users').doc(auth.user.uid);
+                const doc = await userRef.get();
 
-                db
-                    .collection('users')
-                    .doc(auth.user.uid)
-                    .set({
-                        basket: dbBasket,
-                    }, { merge: true });
+                /* add basket from local storage and database together so when user logs in 
+                    they preserve the basket they had before logging in */
+                dispatch({
+                    type: 'SET_BASKET',
+                    basket: addTwoBaskets(doc.data().basket, JSON.parse(localStorage.getItem('basket'))),
+                })
 
                 navigate('/');
             })
